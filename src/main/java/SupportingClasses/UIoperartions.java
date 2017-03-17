@@ -133,7 +133,7 @@ case "CLICK":
             output.update_row();
           
 	 }
-	 catch(StaleElementReferenceException|TimeoutException e)
+	 catch(StaleElementReferenceException e)
 	 {
 		 this.perform(p, operation, objectType, value, dbcolumn_name, dataFlag, input, output, driver, waitingTime);
 		 
@@ -173,7 +173,7 @@ case "CLICK":
         	}
         	
 	 }
-	 catch(StaleElementReferenceException|TimeoutException e)
+	 catch(StaleElementReferenceException e)
 	 {
 		 this.perform(p, operation, objectType, value, dbcolumn_name, dataFlag, input, output, driver, waitingTime);    
 	 }

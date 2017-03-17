@@ -6,7 +6,7 @@ import org.openqa.selenium.net.UrlChecker;
 
 import SupportingClasses.propertiesHandle;
 import SupportingClasses.ConditionsChecking;
-import SupportingClasses.UIoperartions_old;
+//import SupportingClasses.UIoperartions_old;
 import SupportingClasses.databaseOperartions;
 import SupportingClasses.ExcelOperationsJXL;
 import SupportingClasses.browserLaunching;
@@ -21,7 +21,7 @@ public class CvStarrBAD {
 	public static databaseOperartions objectInput;
 	public static databaseOperartions objectOutput;
 	public static String dbColumnNmae=null;
-	public static UIoperartions_old objectUIoperations=null;
+	//public static UIoperartions_old objectUIoperations=null;
 	public static ExcelOperationsJXL objectTestScript=null;
 	public static browserLaunching objectBrowse=null;
 	public static propertiesHandle configFile;
@@ -34,7 +34,7 @@ public class CvStarrBAD {
 	
 	{
 		//objectBrowse=new browserLaunching();
-		objectUIoperations=new UIoperartions_old();
+		//objectUIoperations=new UIoperartions_old();
 		objectconditions=new ConditionsChecking();
 		configFile = new propertiesHandle("D:/sas/config_selenium_Starr_BAD.properties");
 		databaseOperartions.conn_setup(configFile);
@@ -55,7 +55,7 @@ public class CvStarrBAD {
 	  
 	String browser=configFile.getProperty("browser");
 		String url=configFile.getProperty("url");
-		driver=objectUIoperations.launch_browser(browser,url);
+		//driver=objectUIoperations.launch_browser(browser,url);
 		
 		if(driver!=null)
 		{
@@ -103,7 +103,7 @@ public class CvStarrBAD {
 					String  waitingTime=objectTestScript.read_data(objectTestScript.get_rownumber(),10);
 				
 					
-					objectUIoperations.perform(PropertyString,actionKeyword,ObjectType,value,dbcolumnNmae,dataProvidingFlag,objectInput,objectOutput,driver,waitingTime);
+					//objectUIoperations.perform(PropertyString,actionKeyword,ObjectType,value,dbcolumnNmae,dataProvidingFlag,objectInput,objectOutput,driver,waitingTime);
 		
 			} //end of if 
 			objectTestScript.next_row();
