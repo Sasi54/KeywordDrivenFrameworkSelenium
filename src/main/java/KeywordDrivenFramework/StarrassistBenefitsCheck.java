@@ -16,8 +16,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 
 public class StarrassistBenefitsCheck {
-	//***************************global objects and variables****************************************
-	
+	//***************************global objects and variables****************************************	
 	public static  WebDriver driver=null;
 	public static databaseOperartions objectInput;
 	public static databaseOperartions objectOutput;
@@ -28,32 +27,21 @@ public class StarrassistBenefitsCheck {
 	public static propertiesHandle configFile;
 	public static ConditionsChecking objectconditions=null;
 	
-	
-	
-	public static void main(String args[]) throws Exception
-	
-	
+	public static void main(String args[]) throws Exception	
 	{
 		objectBrowse=new browserLaunching();
 		objectUIoperations=new UIoperartions();
 		objectconditions=new ConditionsChecking();
-		configFile = new propertiesHandle("D:/sas/config_selenium_Starr_Assist_benefits_upadte.properties");
+		configFile = new propertiesHandle("A:/1 Projects/13 Starr Assist/PDF Change/Configuration/Config_Automation4.properties");
 		databaseOperartions.conn_setup(configFile);
-		System.setProperty("jsse.enableSNIExtension", "false");
-		
-		
+		System.setProperty("jsse.enableSNIExtension", "false");	
 		objectInput = new databaseOperartions();
-		objectOutput = new databaseOperartions();
-		
-		
-		
+		objectOutput = new databaseOperartions();	
 		objectInput.get_dataobjects(configFile.getProperty("input_query"));
 		objectOutput.get_dataobjects(configFile.getProperty("output_query"));
 		Logger log = Logger.getLogger("devpinoyLogger");
 		
-//********************Login operation*************************************************************************************************************
-		
-	  
+//********************Login operation*************************************************************************************************************	  
 	    String browser=configFile.getProperty("browser");
 		String url=configFile.getProperty("url");
 		driver=objectBrowse.launch_browser(browser,url);
@@ -69,9 +57,7 @@ public class StarrassistBenefitsCheck {
 		{
 			log.debug("driver object is null");
 			System.out.println("driver object is null");
-		}
-		
-		
+		}	
 //************************************************************************************************************************************************
 		objectTestScript = new ExcelOperationsJXL(configFile.getProperty("Test_script_path")+configFile.getProperty("File_name"));
 		objectTestScript.getsheets("Test_Scripts");
@@ -82,9 +68,7 @@ public class StarrassistBenefitsCheck {
 	{
 	  objectTestScript.set_rownumber(1);
 	  if(objectInput.read_data("flag_for_execution").equals("Y"))
-		{  
-		
-		
+		{  	
 		while(objectTestScript.has_next_row())
 		{
 			//log.info(testscript.read_data(testscript.get_rownumber(),5).toString());
@@ -117,8 +101,7 @@ public class StarrassistBenefitsCheck {
 		 objectInput.update_row();
 		 objectOutput.update_row();
 		} //end of if
-	     
-	 
+	    	 
 	}while(objectInput.move_forward() && objectOutput.move_forward()); //end of do
    databaseOperartions.close_conn(); 	
 		

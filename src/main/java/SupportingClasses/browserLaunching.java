@@ -76,7 +76,7 @@ public class browserLaunching {
 					capabilities.setCapability("browserstack.debug", true);
 					// System.setProperty("webdriver.chrome.port","26244");
 					driver = new ChromeDriver(capabilities);
-					driver.manage().window().maximize();
+					//driver.manage().window().maximize();
 					driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 					wait = new WebDriverWait(driver, 30);
 					driver.get(url);
